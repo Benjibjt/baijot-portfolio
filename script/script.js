@@ -23,6 +23,32 @@ function handleNavbarCollapse() {
     });
 }
 
+// About
+function createAboutFromJSON() {
+    fetch("data/about.json")
+        .then(response => response.json())
+        .then(data => {
+            document.querySelector("#about-image").src = data.image;
+            document.querySelector("#about-description").textContent = data.description;
+
+            const details = Object.entries(data.details);
+            const leftList = document.querySelector("#about-details-left");
+            const rightList = document.querySelector("#about-details-right");
+
+            leftList.innerHTML = "";
+            rightList.innerHTML = "";
+
+            details.forEach(([key, value], index) => {
+                const li = document.createElement("li");
+                li.innerHTML = `<strong>${key}:</strong> ${value}`;
+                (index % 2 === 0 ? leftList : rightList).appendChild(li);
+            });
+        })
+        .catch(error => console.error("Erreur de chargement du about :", error));
+}
+
+
+
 // Function to dynamically create HTML elements from the JSON file
 function createSkillsFromJSON() {
     const container = document.querySelector("#skills .container");
@@ -99,8 +125,24 @@ function createPortfolioFromJSON() {
         });
 }
 
+// Contact
+function createContactFromJSON() {
+    fetch("data/contact.json")
+        .then(response => response.json())
+        .then(data => {
+            document.querySelector("#contact-phone").textContent = data.phone;
+            document.querySelector("#contact-email").textContent = data.email;
+            document.querySelector("#contact-linkedin").innerHTML = `<a href="${data.linkedin}" target="_blank">Voir mon profil</a>`;
+        })
+        .catch(error => console.error("Erreur de chargement des contacts :", error));
+}
+
 // Call the functions to execute the code
-handleNavbarScroll();
-handleNavbarCollapse();
-createSkillsFromJSON();
-createPortfolioFromJSON();
+document.addEventListener("DOMContentLoaded", function () {
+    handleNavbarScroll();
+    handleNavbarCollapse();
+    createAboutFromJSON();
+    createSkillsFromJSON();
+    createPortfolioFromJSON();
+    createContactFromJSON(); 
+});
