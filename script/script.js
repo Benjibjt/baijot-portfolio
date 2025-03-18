@@ -4,9 +4,9 @@ function handleNavbarScroll() {
     window.onscroll = function () {
         const top = window.scrollY;
         if (top >= 100) {
-            header.classList.add("navbarDark");
+            header.classList.add("navbar-dark", "bg-dark");
         } else {
-            header.classList.remove("navbarDark");
+            header.classList.remove("navbar-dark", "bg-dark");
         }
     };
 }
@@ -87,7 +87,7 @@ function createPortfolioFromJSON() {
                 `;
 
                 // Append the card to the current row
-                row.apendChild(card);
+                row.appendChild(card);
 
                 // If the index is a multiple of 3 or it's the last element, create a new row
                 if ((index + 1) % 3 === 0 || index === data.length - 1) {
