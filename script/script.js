@@ -28,7 +28,10 @@ function createAboutFromJSON() {
     fetch("data/about.json")
         .then(response => response.json())
         .then(data => {
-            document.querySelector("#about-image").src = data.image;
+            const aboutImage = document.querySelector("#about-image");
+            aboutImage.src = data.image;
+            aboutImage.alt = data.alt || "Image de profil"; 
+
             document.querySelector("#about-description").textContent = data.description;
 
             const details = Object.entries(data.details);
@@ -48,7 +51,6 @@ function createAboutFromJSON() {
 }
 
 
-
 // Function to dynamically create HTML elements from the JSON file
 function createSkillsFromJSON() {
     const container = document.querySelector("#skills .container");
@@ -66,8 +68,8 @@ function createSkillsFromJSON() {
                 card.innerHTML = `
                     <div class="card skillsText">
                         <div class="card-body">
-                            <img src="./images/${item.image}" />
-                            <h4 class="card-title mt-3">${item.title}</h4>
+                            <img src="./images/${item.image}" alt="${item.alt}" />
+                            <h3 class="card-title mt-3">${item.title}</h3>
                             <p class="card-text mt-3">${item.text}</p>
                         </div>
                     </div>
@@ -83,8 +85,10 @@ function createSkillsFromJSON() {
                     row.classList.add("row");
                 }
             });
-        });
+        })
+        .catch(error => console.error("Erreur de chargement des compétences :", error));
 }
+
 // Function to dynamically create HTML elements from the JSON file
 function createPortfolioFromJSON() {
     const container = document.querySelector("#portfolio .container");
@@ -101,15 +105,15 @@ function createPortfolioFromJSON() {
                 card.classList.add("col-lg-4", "mt-4");
                 card.innerHTML = `
                     <div class="card portfolioContent">
-                    <img class="card-img-top" src="images/${item.image}" style="width:100%">
-                    <div class="card-body">
-                        <h4 class="card-title">${item.title}</h4>
-                        <p class="card-text">${item.text}</p>
-                        <div class="text-center">
-                            <a href="${item.link}" class="btn btn-success">Lien</a>
+                        <img class="card-img-top" src="images/${item.image}" alt="${item.alt}" style="width:100%">
+                        <div class="card-body">
+                            <h3 class="card-title">${item.title}</h3>
+                            <p class="card-text">${item.text}</p>
+                            <div class="text-center">
+                                <a href="${item.link}" class="btn btn-success">Lien</a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 `;
 
                 // Append the card to the current row
@@ -122,7 +126,8 @@ function createPortfolioFromJSON() {
                     row.classList.add("row");
                 }
             });
-        });
+        })
+        .catch(error => console.error("Erreur de chargement du portfolio :", error));
 }
 
 // Contact
@@ -130,9 +135,28 @@ function createContactFromJSON() {
     fetch("data/contact.json")
         .then(response => response.json())
         .then(data => {
-            document.querySelector("#contact-phone").textContent = data.phone;
-            document.querySelector("#contact-email").textContent = data.email;
-            document.querySelector("#contact-linkedin").innerHTML = `<a href="${data.linkedin}" target="_blank">Voir mon profil</a>`;
+            const contactContainer = document.querySelector("#contact .container .row");
+            const contactTitle = document.querySelector("#contact h2");
+
+            // Met à jour le titre de la section
+            contactTitle.textContent = data.title;
+
+            // Vide le contenu existant avant d'ajouter les nouvelles données
+            contactContainer.innerHTML = "";
+
+            // Ajoute chaque contact dynamiquement
+            data.contacts.forEach(contact => {
+                const contactColumn = document.createElement("div");
+                contactColumn.classList.add("col-lg-4", "mt-4", "contactColumn");
+
+                contactColumn.innerHTML = `
+                    <i class="${contact.icon} fa-4x" aria-label="${contact.type}"></i>
+                    <h3>${contact.type}</h3>
+                    <p>${contact.info}</p>
+                `;
+
+                contactContainer.appendChild(contactColumn);
+            });
         })
         .catch(error => console.error("Erreur de chargement des contacts :", error));
 }

@@ -1,5 +1,21 @@
 {
-    "phone": "06-06-06-06-06",
-    "email": "prenom.nom@gmail.com",
-    "linkedin": "https://www.linkedin.com/in/ton-profil"
+    "title": "Contactez-moi",
+    "contacts": [
+        {
+            "type": "Téléphone",
+            "icon": "fa-solid fa-phone",
+            "info": "06-06-06-06-06"
+        },
+        {
+            "type": "Adresse email",
+            "icon": "fa-regular fa-envelope",
+            "info": "prenom.nom@gmail.com"
+        },
+        {
+            "type": "LinkedIn",
+            "icon": "fa-brands fa-linkedin-in",
+            "info": "LinkedIn Name"
+        }
+    ]
 }
+

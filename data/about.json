@@ -1,5 +1,6 @@
 {
     "image": "images/person.png",
+    "alt": "Photo de Benjamin Baijot",
     "details": {
         "Nom": "Benjamin Baijot",
         "Âge": "36 ans",
