@@ -4,8 +4,8 @@
 #skills,
 #portfolio,
 #contact {
-    margin-top: 4rem;
-    padding-top: 4rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
 }
 #about h2,
 #skills h2,
@@ -116,3 +116,17 @@
 }
 
 /* footer */
+
+footer {
+    margin-top: 4rem;
+}
+
+footer a {
+    text-decoration: none;
+    color: #198754;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
