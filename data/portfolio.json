@@ -1,20 +1,20 @@
 [
     {
-        "image": "image1.png",
+        "image": "projet-booki.webp",
         "alt": "Aperçu du projet 1",
         "title": "Booki",
         "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         "link": "#"
     },
     {
-        "image": "image2.png",
+        "image": "projet-grimoire.webp",
         "alt": "Aperçu du projet 2",
         "title": "Mon Vieux grimoire",
         "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         "link": "#"
     },
     {
-        "image": "image3.png",
+        "image": "projet-kasa.webp",
         "alt": "Aperçu du projet 3",
         "title": "Kasa",
         "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",

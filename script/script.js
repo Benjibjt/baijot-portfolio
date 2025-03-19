@@ -1,15 +1,36 @@
-// Function to add the "navbarDark" class to the navbar on scroll
 function handleNavbarScroll() {
     const header = document.querySelector(".navbar");
+    const navbarName = document.querySelector(".navbarName"); // Sélectionner le nom
+    const navLinks = document.querySelectorAll(".navLinks");
+
     window.onscroll = function () {
         const top = window.scrollY;
-        if (top >= 100) {
+        
+        if (top >= 700) {
             header.classList.add("navbar-dark", "bg-dark");
+            
+            // Changer la couleur du lien en blanc
+            navbarName.style.color = "white";
+
+            // Changer la couleur de tous les liens en blanc
+            navLinks.forEach(link => {
+                link.style.color = "white";
+            });
+
         } else {
             header.classList.remove("navbar-dark", "bg-dark");
+            
+            // Réinitialiser la couleur du lien
+            navbarName.style.color = ""; // Revenir à la couleur d'origine définie en CSS
+
+            // Réinitialiser la couleur de tous les liens
+            navLinks.forEach(link => {
+                link.style.color = ""; // Revenir à la couleur d'origine
+            });
         }
     };
 }
+
 
 // Function to handle navbar collapse on small devices after a click
 function handleNavbarCollapse() {

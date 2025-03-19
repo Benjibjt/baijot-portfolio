@@ -17,25 +17,42 @@
     padding-bottom: 4rem;
 }
 
+.navbarName {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navLinks {
+    color: black;
+    padding: 8px;
+    text-decoration: none;
+}
+
+
+
 /* display background dark color on navbar scroll */
 .navbarScroll {
-    background-color: #5b5b5b;
+    background-color: #eee8e8;
+
 }
 
 /* hero background image */
 .bgimage {
     height: 100vh;
     max-height: 900px;
-    background: url("images/image1.jpg");
+    background: url("images/banner.webp");
     background-size: cover;
     position: relative;
 }
 /* text css above hero image*/
 .hero_title {
     font-size: 4.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 .hero_desc {
     font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 .hero-text {
     text-align: center;
