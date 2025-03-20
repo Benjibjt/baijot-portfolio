@@ -32,3 +32,24 @@ Bienvenue sur mon portfolio ! 🚀 Découvrez mes projets, compétences et expé
 ```bash
 git clone https://github.com/Benjibjt/baijot-portfolio.git
 cd baijot-portfolio
+
+### 2️⃣ Ouvrir le projet
+
+Ouvrez le fichier `index.html` directement dans votre navigateur ou utilisez un serveur local pour le tester :
+
+```bash
+# Avec Python (si installé)
+python -m http.server 
+
+Ensuite, ouvrez http://localhost:8000 dans votre navigateur.
+
+
+##📌 Améliorations prévues
+
+🌟 Ajout d’une version en React.js
+🔍 Optimisation des performances et du SEO
+🖼️ Passage au format WebP pour toutes les images
+
+##📜 Licence
+Ce projet est sous licence MIT.
+N’hésitez pas à l'utiliser, le modifier et le partager ! 😊

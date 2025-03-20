@@ -1,5 +1,4 @@
-/******* GENERAL *******/
-/* spacing on all sections */
+/* GENERAL */
 #about,
 #skills,
 #portfolio,
@@ -17,6 +16,7 @@
     padding-bottom: 4rem;
 }
 
+
 .navbarName {
     color: black;
     font-weight: bold;
@@ -29,15 +29,23 @@
     text-decoration: none;
 }
 
-
-
-/* display background dark color on navbar scroll */
 .navbarScroll {
     background-color: #eee8e8;
-
 }
 
-/* hero background image */
+
+/* Style par défaut du bouton */
+.navbar-toggler {
+/*    background-color: #ddd; /* Fond gris */
+    border: 1px solid;
+}
+
+/* Couleur des traits (barres) du bouton */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+} 
+
+/* HERO IMAGE */
 .bgimage {
     height: 100vh;
     max-height: 900px;
@@ -45,7 +53,6 @@
     background-size: cover;
     position: relative;
 }
-/* text css above hero image*/
 .hero_title {
     font-size: 4.5rem;
     background-color: rgba(0, 0, 0, 0.5);
@@ -63,16 +70,18 @@
     color: white;
 }
 
-/* about */
+/* ABOUT */
 .imageAboutPage {
     width: 100%;
-}
-.imageAboutPage {
     border-radius: 50%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: block;   
+    margin: 0 auto;   
+    height: auto;     
 }
 
-/* skills */
+
+/* SKILLS */
 .skillsText.card {
     height: 350px;
     cursor: pointer;
@@ -100,12 +109,12 @@
     border: 1px solid #008000;
 }
 
-/* portfolio */
+/* PORTFOLIO */
 #portfolio p {
     text-align: center;
 }
 
-/* contact */
+/* CONTACT */
 .contactColumn {
     display: flex;
     flex-direction: column;
@@ -115,18 +124,68 @@
     color: #198754;
 }
 
-/* footer */
-
+/* FOOTER */
 footer {
     margin-top: 4rem;
 }
-
 footer a {
     text-decoration: none;
     color: #198754;
 }
-
 footer a:hover {
     text-decoration: underline;
 }
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) { /* Tablettes */
+    .hero_title {
+        font-size: 3.5rem;
+    }
+    .hero_desc {
+        font-size: 1.5rem;
+    }
+    .imageAboutPage {
+        width: 80%; 
+    }
+    .skillsText.card {
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) { /* Mobiles */
+    .hero_title {
+        font-size: 2.5rem;
+    }
+    .hero_desc {
+        font-size: 1.2rem;
+    }
+    .hero-text {
+        width: 90%;
+    }
+    .navbar .navLinks {
+        padding: 4px;
+    }
+    .imageAboutPage {
+        width: 70%; 
+    }
+}
+
+@media (max-width: 480px) { /* Petits écrans */
+    .hero_title {
+        font-size: 2rem;
+    }
+    .hero_desc {
+        font-size: 1rem;
+    }
+    .hero-text {
+        width: 100%;
+    }
+    .navbarName {
+        font-size: 1.2rem;
+    }
+    .imageAboutPage {
+        width: 60%;
+    }
+}
+
 

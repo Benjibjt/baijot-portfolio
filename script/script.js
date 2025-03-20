@@ -6,7 +6,7 @@ function handleNavbarScroll() {
     window.onscroll = function () {
         const top = window.scrollY;
         
-        if (top >= 700) {
+        if (top >= 536) {
             header.classList.add("navbar-dark", "bg-dark");
             
             // Changer la couleur du lien en blanc
