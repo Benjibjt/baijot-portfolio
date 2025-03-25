@@ -23,6 +23,8 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/74c7ee3b5a.js" crossorigin="anonymous" defer></script>
 
+    <!-- Chargement de la bannière -->
+    <link rel="preload" as="image" href="images/banner.webp" type="image/webp">
 
     <!-- Chargement conditionnel de Bootstrap CSS -->
     <link rel="stylesheet" href="style.css">
@@ -73,8 +75,7 @@
 
     <main>
         <!-- main banner -->
-        <section class="bgimage" id="home">
-            <img src="images/banner.webp" alt="Photo de l'espace intersidéral" style="display: none;">
+        <section class="bgimage" id="home" aria-label="Image du cyberespace">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
