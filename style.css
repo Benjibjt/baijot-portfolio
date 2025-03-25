@@ -23,6 +23,11 @@
     background-color: #343a40;
 }
 
+.navbarName {
+    text-decoration: none;
+    color: inherit;
+}
+
 .navbar-expand-lg {
     display: flex;
     flex-wrap: wrap;
@@ -30,14 +35,6 @@
 
 .navbar-dark {
     background-color: #343a40;
-}
-
-.navbar-toggler {
-    border: 1px solid #ddd;
-}
-
-.navbar-toggler-icon {
-    background-color: #ddd;
 }
 
 .navbar-collapse {

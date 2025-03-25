@@ -10,11 +10,14 @@ function addCacheVersion(imagePath) {
     return `${imagePath}?v=${cacheVersion}`;
 }
 
-// Navbar Scroll Effect
 function handleNavbarScroll() {
     const header = document.querySelector(".navbar");
     const navbarName = document.querySelector(".navbarName");
     const navLinks = document.querySelectorAll(".navLinks");
+    const navbarTogglerIcon = document.querySelector(".navbar-toggler-icon");
+
+    // Forcer la couleur noire au chargement
+    navbarTogglerIcon.style.backgroundImage = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E\")";
 
     window.onscroll = function () {
         const top = window.scrollY;
@@ -22,13 +25,21 @@ function handleNavbarScroll() {
             header.classList.add("navbar-dark", "bg-dark");
             navbarName.style.color = "white";
             navLinks.forEach(link => link.style.color = "white");
+
+            // Changer les traits du bouton en blanc
+            navbarTogglerIcon.style.backgroundImage = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E\")";
         } else {
             header.classList.remove("navbar-dark", "bg-dark");
-            navbarName.style.color = "black";
+            navbarName.style.color = "";
             navLinks.forEach(link => link.style.color = "");
+
+            // Remettre les traits en noir
+            navbarTogglerIcon.style.backgroundImage = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E\")";
         }
     };
 }
+
+
 
 // Navbar Collapse on Small Screens
 function handleNavbarCollapse() {
