@@ -1,6 +1,6 @@
 // Version pour le cache (change "2.0" par "3.0" quand nécessaire)
 const cacheVersion = "2.0";
-
+ 
 /**
  * Ajoute une version aux images pour éviter les problèmes de cache
  * @param {string} imagePath - Chemin de l'image
@@ -10,6 +10,7 @@ function addCacheVersion(imagePath) {
     return `${imagePath}?v=${cacheVersion}`;
 }
 
+// Navbar Scroll Effect
 function handleNavbarScroll() {
     const header = document.querySelector(".navbar");
     const navbarName = document.querySelector(".navbarName");
