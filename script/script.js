@@ -24,7 +24,7 @@ function handleNavbarScroll() {
             navLinks.forEach(link => link.style.color = "white");
         } else {
             header.classList.remove("navbar-dark", "bg-dark");
-            navbarName.style.color = "";
+            navbarName.style.color = "black";
             navLinks.forEach(link => link.style.color = "");
         }
     };
@@ -47,28 +47,32 @@ function createAboutFromJSON() {
     fetch("data/about.json")
         .then(response => response.json())
         .then(data => {
-            const aboutImage = document.querySelector("#about-image");
-            
-            // Correction : Utilisation directe du chemin sans ajouter "images/"
-            aboutImage.src = addCacheVersion(data.image);
-            aboutImage.alt = data.alt || "Image de profil";
+            document.querySelector("#about .container").innerHTML = `
+                <h2 class="text-center">À propos</h2>
+                <div class="row mt-4">
+                    <div class="col-lg-4">
+                        <img id="about-image" src="${data.image}" class="imageAboutPage" alt="${data.alt || 'Image de profil'}">
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row mt-3">
+                            <div class="col-md-6"><ul id="about-details-left"></ul></div>
+                            <div class="col-md-6"><ul id="about-details-right"></ul></div>
+                            <p id="about-description">${data.description}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
 
-            document.querySelector("#about-description").textContent = data.description;
-
-            const details = Object.entries(data.details);
-            const leftList = document.querySelector("#about-details-left");
-            const rightList = document.querySelector("#about-details-right");
-
-            leftList.innerHTML = "";
-            rightList.innerHTML = "";
-
-            details.forEach(([key, value], index) => {
-                const li = document.createElement("li");
-                li.innerHTML = `<strong>${key}:</strong> ${value}`;
-                (index % 2 === 0 ? leftList : rightList).appendChild(li);
+            const detailsLists = [document.querySelector("#about-details-left"), document.querySelector("#about-details-right")];
+            Object.entries(data.details).forEach(([key, value], index) => {
+                detailsLists[index % 2].innerHTML += `<li><strong>${key}:</strong> ${value}</li>`;
             });
+
+            document.querySelector("#about-image").onerror = function () {
+                this.src = "images/photo-profil.webp"; // Image par défaut en cas d'erreur
+            };
         })
-        .catch(error => console.error("Erreur de chargement du about :", error));
+        .catch(error => console.error("Erreur de chargement du about.json :", error));
 }
 
 // Skills Section

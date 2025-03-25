@@ -1,3 +1,5 @@
+/* Fichier style.css */
+
 /* GENERAL */
 #about,
 #skills,
@@ -16,11 +18,38 @@
     padding-bottom: 4rem;
 }
 
+/* NAVBAR (Bootstrap classes) */
+.navbar {
+    background-color: #343a40;
+}
 
-.navbarName {
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
+.navbar-expand-lg {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.navbar-dark {
+    background-color: #343a40;
+}
+
+.navbar-toggler {
+    border: 1px solid #ddd;
+}
+
+.navbar-toggler-icon {
+    background-color: #ddd;
+}
+
+.navbar-collapse {
+    display: flex;
+}
+
+.navbar-nav {
+    list-style: none;
+}
+
+.nav-item {
+    margin: 0 15px;
 }
 
 .navLinks {
@@ -33,18 +62,6 @@
     background-color: #eee8e8;
 }
 
-
-/* Style par défaut du bouton */
-.navbar-toggler {
-/*    background-color: #ddd; /* Fond gris */
-    border: 1px solid;
-}
-
-/* Couleur des traits (barres) du bouton */
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-} 
-
 /* HERO IMAGE */
 .bgimage {
     height: 100vh;
@@ -53,14 +70,17 @@
     background-size: cover;
     position: relative;
 }
+
 .hero_title {
     font-size: 4.5rem;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
 .hero_desc {
     font-size: 2rem;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
 .hero-text {
     text-align: center;
     position: absolute;
@@ -80,7 +100,6 @@
     height: auto;     
 }
 
-
 /* SKILLS */
 .skillsText.card {
     height: 100%;
@@ -89,10 +108,10 @@
 }
 
 .skillsText .card-body {
-    flex-grow: 1; /* Permet au contenu de remplir l'espace disponible */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pour équilibrer le contenu */
+    justify-content: space-between;
 }
 
 .skillsText img {
@@ -100,20 +119,25 @@
     height: 150px;
     object-fit: contain;
 }
+
 #skills p {
     text-align: center;
 }
+
 .skillsIcon {
     font-size: 36px;
     text-align: center;
     width: 100%;
 }
+
 .card-title {
     text-align: center;
 }
+
 .card:hover .skillsIcon {
     color: #008000;
 }
+
 .skillsText:hover {
     border: 1px solid #008000;
 }
@@ -129,6 +153,7 @@
     flex-direction: column;
     align-items: center;
 }
+
 .contactColumn i {
     color: #198754;
 }
@@ -137,21 +162,22 @@
     color: white;
 }
 
-
 /* FOOTER */
 footer {
     margin-top: 4rem;
 }
+
 footer a {
     text-decoration: none;
     color: #198754;
 }
+
 footer a:hover {
     text-decoration: underline;
 }
 
 /* RESPONSIVE DESIGN */
-@media (max-width: 1024px) { /* Tablettes */
+@media (max-width: 1024px) { 
     .hero_title {
         font-size: 3.5rem;
     }
@@ -159,9 +185,8 @@ footer a:hover {
         font-size: 1.5rem;
     }
     .imageAboutPage {
-        width: 80%; 
+        width: 80%;
     }
-
     .skillsText.card {
         height: 100%;
         padding: 1rem;
@@ -169,10 +194,9 @@ footer a:hover {
     .skillsText img {
         height: 120px;
     }
-
 }
 
-@media (max-width: 768px) { /* Mobiles */
+@media (max-width: 768px) { 
     .hero_title {
         font-size: 2.5rem;
     }
@@ -188,7 +212,6 @@ footer a:hover {
     .imageAboutPage {
         width: 70%; 
     }
-
     .skillsText.card {
         height: auto;
         padding: 0.5rem;
@@ -201,7 +224,7 @@ footer a:hover {
     }
 }
 
-@media (max-width: 480px) { /* Petits écrans */
+@media (max-width: 480px) { 
     .hero_title {
         font-size: 2rem;
     }
@@ -217,7 +240,6 @@ footer a:hover {
     .imageAboutPage {
         width: 60%;
     }
-
     .skillsText.card {
         height: auto;
         padding: 0.5rem;
