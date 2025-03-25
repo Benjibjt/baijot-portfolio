@@ -6,7 +6,6 @@ Bienvenue sur mon portfolio ! 🚀 Découvrez mes projets, compétences et expé
 
 🔗 [Voir le site en ligne](https://benjibjt.github.io/baijot-portfolio/)  
 
-![Aperçu du portfolio](images/banner.webp)
 
 ## 🛠️ Technologies utilisées
 

@@ -4,17 +4,17 @@
         {
             "type": "Téléphone",
             "icon": "fa-solid fa-phone",
-            "info": "06-06-06-06-06"
+            "info": "06-41-59-12-55"
         },
         {
             "type": "Adresse email",
             "icon": "fa-regular fa-envelope",
-            "info": "prenom.nom@gmail.com"
+            "info": "baijotbenj@gmail.com"
         },
         {
             "type": "LinkedIn",
             "icon": "fa-brands fa-linkedin-in",
-            "info": "LinkedIn Name"
+            "info": "benjamin-baijot-29198aa7/"
         }
     ]
 }

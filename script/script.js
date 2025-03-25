@@ -1,38 +1,36 @@
+// Version pour le cache (change "2.0" par "3.0" quand nécessaire)
+const cacheVersion = "2.0";
+
+/**
+ * Ajoute une version aux images pour éviter les problèmes de cache
+ * @param {string} imagePath - Chemin de l'image
+ * @returns {string} - Chemin modifié avec version
+ */
+function addCacheVersion(imagePath) {
+    return `${imagePath}?v=${cacheVersion}`;
+}
+
+// Navbar Scroll Effect
 function handleNavbarScroll() {
     const header = document.querySelector(".navbar");
-    const navbarName = document.querySelector(".navbarName"); // Sélectionner le nom
+    const navbarName = document.querySelector(".navbarName");
     const navLinks = document.querySelectorAll(".navLinks");
 
     window.onscroll = function () {
         const top = window.scrollY;
-        
         if (top >= 536) {
             header.classList.add("navbar-dark", "bg-dark");
-            
-            // Changer la couleur du lien en blanc
             navbarName.style.color = "white";
-
-            // Changer la couleur de tous les liens en blanc
-            navLinks.forEach(link => {
-                link.style.color = "white";
-            });
-
+            navLinks.forEach(link => link.style.color = "white");
         } else {
             header.classList.remove("navbar-dark", "bg-dark");
-            
-            // Réinitialiser la couleur du lien
-            navbarName.style.color = ""; // Revenir à la couleur d'origine définie en CSS
-
-            // Réinitialiser la couleur de tous les liens
-            navLinks.forEach(link => {
-                link.style.color = ""; // Revenir à la couleur d'origine
-            });
+            navbarName.style.color = "";
+            navLinks.forEach(link => link.style.color = "");
         }
     };
 }
 
-
-// Function to handle navbar collapse on small devices after a click
+// Navbar Collapse on Small Screens
 function handleNavbarCollapse() {
     const navLinks = document.querySelectorAll(".nav-item");
     const menuToggle = document.getElementById("navbarSupportedContent");
@@ -44,14 +42,16 @@ function handleNavbarCollapse() {
     });
 }
 
-// About
+// About Section
 function createAboutFromJSON() {
     fetch("data/about.json")
         .then(response => response.json())
         .then(data => {
             const aboutImage = document.querySelector("#about-image");
-            aboutImage.src = data.image;
-            aboutImage.alt = data.alt || "Image de profil"; 
+            
+            // Correction : Utilisation directe du chemin sans ajouter "images/"
+            aboutImage.src = addCacheVersion(data.image);
+            aboutImage.alt = data.alt || "Image de profil";
 
             document.querySelector("#about-description").textContent = data.description;
 
@@ -71,35 +71,29 @@ function createAboutFromJSON() {
         .catch(error => console.error("Erreur de chargement du about :", error));
 }
 
-
-// Function to dynamically create HTML elements from the JSON file
+// Skills Section
 function createSkillsFromJSON() {
     const container = document.querySelector("#skills .container");
     let row = document.createElement("div");
     row.classList.add("row");
 
-    // Load the JSON file
     fetch("data/skills.json")
-        .then((response) => response.json())
-        .then((data) => {
-            // Iterate through the JSON data and create HTML elements
+        .then(response => response.json())
+        .then(data => {
             data.forEach((item, index) => {
                 const card = document.createElement("div");
                 card.classList.add("col-lg-4", "mt-4");
                 card.innerHTML = `
                     <div class="card skillsText">
                         <div class="card-body">
-                            <img src="./images/${item.image}" alt="${item.alt}" />
+                            <img src="${addCacheVersion('images/' + item.image)}" alt="${item.alt}" />
                             <h3 class="card-title mt-3">${item.title}</h3>
                             <p class="card-text mt-3">${item.text}</p>
                         </div>
                     </div>
                 `;
 
-                // Append the card to the current row
                 row.appendChild(card);
-
-                // If the index is a multiple of 3 or it's the last element, create a new row
                 if ((index + 1) % 3 === 0 || index === data.length - 1) {
                     container.appendChild(row);
                     row = document.createElement("div");
@@ -110,23 +104,21 @@ function createSkillsFromJSON() {
         .catch(error => console.error("Erreur de chargement des compétences :", error));
 }
 
-// Function to dynamically create HTML elements from the JSON file
+// Portfolio Section
 function createPortfolioFromJSON() {
     const container = document.querySelector("#portfolio .container");
     let row = document.createElement("div");
     row.classList.add("row");
 
-    // Load the JSON file
     fetch("data/portfolio.json")
-        .then((response) => response.json())
-        .then((data) => {
-            // Iterate through the JSON data and create HTML elements
+        .then(response => response.json())
+        .then(data => {
             data.forEach((item, index) => {
                 const card = document.createElement("div");
                 card.classList.add("col-lg-4", "mt-4");
                 card.innerHTML = `
                     <div class="card portfolioContent">
-                        <img class="card-img-top" src="images/${item.image}" alt="${item.alt}" style="width:100%">
+                        <img class="card-img-top" src="${addCacheVersion('images/' + item.image)}" alt="${item.alt}" style="width:100%">
                         <div class="card-body">
                             <h3 class="card-title">${item.title}</h3>
                             <p class="card-text">${item.text}</p>
@@ -137,10 +129,7 @@ function createPortfolioFromJSON() {
                     </div>
                 `;
 
-                // Append the card to the current row
                 row.appendChild(card);
-
-                // If the index is a multiple of 3 or it's the last element, create a new row
                 if ((index + 1) % 3 === 0 || index === data.length - 1) {
                     container.appendChild(row);
                     row = document.createElement("div");
@@ -151,7 +140,7 @@ function createPortfolioFromJSON() {
         .catch(error => console.error("Erreur de chargement du portfolio :", error));
 }
 
-// Contact
+// Contact Section
 function createContactFromJSON() {
     fetch("data/contact.json")
         .then(response => response.json())
@@ -159,21 +148,27 @@ function createContactFromJSON() {
             const contactContainer = document.querySelector("#contact .container .row");
             const contactTitle = document.querySelector("#contact h2");
 
-            // Met à jour le titre de la section
             contactTitle.textContent = data.title;
-
-            // Vide le contenu existant avant d'ajouter les nouvelles données
             contactContainer.innerHTML = "";
 
-            // Ajoute chaque contact dynamiquement
             data.contacts.forEach(contact => {
                 const contactColumn = document.createElement("div");
                 contactColumn.classList.add("col-lg-4", "mt-4", "contactColumn");
 
+                // Déterminer si l'info doit être un lien cliquable
+                let contactInfo = `<p class="contact-info">${contact.info}</p>`;
+                if (contact.type === "Téléphone") {
+                    contactInfo = `<p><a href="tel:${contact.info.replace(/-/g, '')}" class="contact-info">${contact.info}</a></p>`;
+                } else if (contact.type === "Adresse email") {
+                    contactInfo = `<p><a href="mailto:${contact.info}" class="contact-info">${contact.info}</a></p>`;
+                } else if (contact.type === "LinkedIn") {
+                    contactInfo = `<p><a href="https://www.linkedin.com/in/${contact.info}" target="_blank" rel="noopener noreferrer" class="contact-info">${contact.info}</a></p>`;
+                }
+
                 contactColumn.innerHTML = `
-                    <i class="${contact.icon} fa-4x" aria-label="${contact.type}"></i>
+                    <i class="${contact.icon} fa-4x"></i>
                     <h3>${contact.type}</h3>
-                    <p>${contact.info}</p>
+                    ${contactInfo}
                 `;
 
                 contactContainer.appendChild(contactColumn);
@@ -182,12 +177,12 @@ function createContactFromJSON() {
         .catch(error => console.error("Erreur de chargement des contacts :", error));
 }
 
-// Call the functions to execute the code
+// Exécuter les fonctions après le chargement de la page
 document.addEventListener("DOMContentLoaded", function () {
     handleNavbarScroll();
     handleNavbarCollapse();
     createAboutFromJSON();
     createSkillsFromJSON();
     createPortfolioFromJSON();
-    createContactFromJSON(); 
+    createContactFromJSON();
 });
