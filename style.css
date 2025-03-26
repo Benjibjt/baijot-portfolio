@@ -74,12 +74,12 @@
  
  .hero_title {
      font-size: 4.5rem;
-     background-color: rgba(0, 0, 0, 0.5);
+     background-color: rgba(0, 0, 0, 0.1);
  }
  
  .hero_desc {
      font-size: 2rem;
-     background-color: rgba(0, 0, 0, 0.5);
+     background-color: rgba(0, 0, 0, 0.1);
  }
  
  .hero-text {
