@@ -1,6 +1,6 @@
 // Version pour le cache (change "2.0" par "3.0" quand nécessaire)
 const cacheVersion = "2.0";
- 
+
 /**
  * Ajoute une version aux images pour éviter les problèmes de cache
  * @param {string} imagePath - Chemin de l'image
@@ -39,8 +39,6 @@ function handleNavbarScroll() {
         }
     };
 }
-
-
 
 // Navbar Collapse on Small Screens
 function handleNavbarCollapse() {
@@ -98,7 +96,8 @@ function createSkillsFromJSON() {
         .then(data => {
             data.forEach((item, index) => {
                 const card = document.createElement("div");
-                card.classList.add("col-lg-4", "mt-4");
+                card.classList.add("col-lg-3", "col-md-6", "col-sm-12", "mt-4"); // 4 par ligne sur grand écran
+
                 card.innerHTML = `
                     <div class="card skillsText">
                         <div class="card-body">
@@ -110,7 +109,9 @@ function createSkillsFromJSON() {
                 `;
 
                 row.appendChild(card);
-                if ((index + 1) % 3 === 0 || index === data.length - 1) {
+                
+                // Ajouter la ligne après 4 éléments au lieu de 3
+                if ((index + 1) % 4 === 0 || index === data.length - 1) {
                     container.appendChild(row);
                     row = document.createElement("div");
                     row.classList.add("row");
@@ -132,6 +133,15 @@ function createPortfolioFromJSON() {
             data.forEach((item, index) => {
                 const card = document.createElement("div");
                 card.classList.add("col-lg-4", "mt-4");
+
+                // Vérifie si le projet est dans les 3 premiers
+                const links = index < 3 
+                    ? `  
+                        <a href="${item.link}" class="btn btn-success" target="_blank" rel="noopener noreferrer">Projet Github</a>
+                        <a href="${item.link2}" class="btn btn-primary ms-2" target="_blank" rel="noopener noreferrer">Site Github Pages</a>
+                    ` 
+                    : `<a href="${item.link}" class="btn btn-success" target="_blank" rel="noopener noreferrer">Projet Github</a>`;
+
                 card.innerHTML = `
                     <div class="card portfolioContent">
                         <img class="card-img-top" src="${addCacheVersion('images/' + item.image)}" alt="${item.alt}" style="width:100%">
@@ -139,13 +149,14 @@ function createPortfolioFromJSON() {
                             <h3 class="card-title">${item.title}</h3>
                             <p class="card-text">${item.text}</p>
                             <div class="text-center">
-                                <a href="${item.link}" class="btn btn-success">Lien</a>
+                                ${links}
                             </div>
                         </div>
                     </div>
                 `;
 
                 row.appendChild(card);
+                
                 if ((index + 1) % 3 === 0 || index === data.length - 1) {
                     container.appendChild(row);
                     row = document.createElement("div");
@@ -174,9 +185,9 @@ function createContactFromJSON() {
                 // Déterminer si l'info doit être un lien cliquable
                 let contactInfo = `<p class="contact-info">${contact.info}</p>`;
                 if (contact.type === "Téléphone") {
-                    contactInfo = `<p><a href="tel:${contact.info.replace(/-/g, '')}" class="contact-info">${contact.info}</a></p>`;
+                    contactInfo = `<p><a href="tel:${contact.info.replace(/-/g, '')}" class="contact-info" target="_blank" rel="noopener noreferrer">${contact.info}</a></p>`;
                 } else if (contact.type === "Adresse email") {
-                    contactInfo = `<p><a href="mailto:${contact.info}" class="contact-info">${contact.info}</a></p>`;
+                    contactInfo = `<p><a href="mailto:${contact.info}" class="contact-info" target="_blank" rel="noopener noreferrer">${contact.info}</a></p>`;
                 } else if (contact.type === "LinkedIn") {
                     contactInfo = `<p><a href="https://www.linkedin.com/in/${contact.info}" target="_blank" rel="noopener noreferrer" class="contact-info">${contact.info}</a></p>`;
                 }

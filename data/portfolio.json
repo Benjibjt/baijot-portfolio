@@ -1,23 +1,47 @@
 [
     {
-        "image": "projet-booki.webp",
-        "alt": "Aperçu du projet 1",
-        "title": "Booki",
-        "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        "link": "#"
+        "image": "riding-cities.webp",
+        "alt": "Aperçu du projet riding cities",
+        "title": "Riding Cities",
+        "text": "Mise à jour d’une page web associative en intégrant une nouvelle section, un titre et des boutons de téléchargement, tout en explorant l’interaction entre HTML, CSS et les outils Figma et VS Code.",
+        "link": "https://github.com/Benjibjt/riding-cities",
+        "link2": "https://benjibjt.github.io/riding-cities/"
     },
     {
-        "image": "projet-grimoire.webp",
-        "alt": "Aperçu du projet 2",
-        "title": "Mon Vieux grimoire",
-        "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        "link": "#"
+        "image": "projet-booki.webp",
+        "alt": "Aperçu du projet Booki",
+        "title": "Booki",
+        "text": "Création de la page d’accueil responsive d’une agence de voyage en HTML et CSS, en respectant les maquettes Figma et en développant des composants adaptés aux différents écrans.",
+        "link": "https://github.com/Benjibjt/booki",
+        "link2": "https://benjibjt.github.io/booki/"
+    },
+    {
+        "image": "print-it.webp",
+        "alt": "Aperçu du projet Print-it",
+        "title": "Print-it",
+        "text": "Ajout d’un carrousel interactif en JavaScript pour dynamiser le site d’une imprimerie, en explorant les bases du langage et son interaction avec HTML et CSS.",
+        "link": "https://github.com/Benjibjt/Print-it",
+        "link2": "https://benjibjt.github.io/Print-it/"
+    },
+    {
+        "image": "sophie-bluel.webp",
+        "alt": "Aperçu du projet Portfolio Sophie Bluel Architecte",
+        "title": "Portfolio Architecte",
+        "text": "Développement d’une page web dynamique en JavaScript pour une architecte d’intérieur, avec gestion du DOM, création d’une page de connexion et interaction avec une API.",
+        "link": "https://github.com/Benjibjt/Portfolio-architecte-sophie-bluel"
     },
     {
         "image": "projet-kasa.webp",
-        "alt": "Aperçu du projet 3",
+        "alt": "Aperçu du projet Kasa",
         "title": "Kasa",
-        "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        "link": "#"
+        "text": "Développement du front-end d’une application de location de logement avec React, en créant des composants dynamiques et en gérant la navigation avec React Router.",
+        "link": "https://github.com/Benjibjt/kasa"
+    },
+    {
+        "image": "ecobliss-bath.webp",
+        "alt": "Aperçu du projet Ecobliss-bath",
+        "title": "Ecobliss-Bath",
+        "text": "Automatisation des tests fonctionnels avec Cypress pour améliorer la qualité et la fiabilité du site web d’une start-up écoresponsable, sélection des scénarios critiques et rédaction d’un rapport détaillé.",
+        "link": "https://github.com/Benjibjt/ecobliss-bath"
     }
 ]

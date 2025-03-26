@@ -1,38 +1,51 @@
 [
     {
-        "image": "html-css.webp",
-        "alt": "Logo Html-css",
-        "title": "HTML - CSS",
-        "text": "Intégration d’interfaces responsives et accessibles, utilisation de maquettes Figma, développement d’animations CSS"
+        "image": "langages-dev.webp",
+        "alt": "Icônes Html-css-js",
+        "title": "Langages de programmation",
+        "text": "HTML, CSS, JavaScript pour structurer, styliser, animer et rendre interactifs les sites web."
     },
     {
-        "image": "js.webp",
-        "alt": "Logo javascript",
-        "title": "javascript",
-        "text": "Manipulation du DOM, création d’éléments dynamiques, gestion de données de formulaires"
+        "image": "cms-erp.webp",
+        "alt": "Icône Wordpress",
+        "title": "CMS & ERP",
+        "text": "Création, intégration et personnalisation de sites avec des CMS comme WordPress et Drupal, et gestion d’ERP (Axelor) dans des environnements d'entreprise."
     },
     {
         "image": "react.webp",
         "alt": "Logo React",
-        "title": "React",
-        "text": "Création d’applications React, création de composants et manipulation de leur état"
+        "title": "React - Fondamentaux",
+        "text": "Création d’applications React avec gestion de composants, d’état, et navigation (react-router) pour des interfaces interactives et dynamiques."
     },
     {
-        "image": "gestion-de-projet.webp",
-        "alt": "Logo gestion de projet",
-        "title": "Gestion de projet",
-        "text": "Analyse des besoins d’un client, définition d’une solution technique répondant aux besoins fonctionnelle, planification du projet"
+        "image": "bug.webp",
+        "alt": "Icône bug",
+        "title": "Stratégies de test & Debugging",
+        "text": "Application de TDD, élaboration de plans de test et de cahiers de recettes, critères d’acceptation et débogage du code avec des outils comme DevTools et console.log."
     },
     {
-        "image": "optimisation-et-debug.webp",
-        "alt": "Logo optimisation et debug",
-        "title": "Optimisation et debug",
-        "text": "Identification des anomalies et correction d’un site existant, optimisation SEO et performance et publication d’un site en ligne"
+        "image": "test-qa.webp",
+        "alt": "Icône test logiciel",
+        "title": "Tests fonctionnels et automatisés",
+        "text": "Tests manuels (fonctionnels, exploratoires, régression, validation), automatisés (Cypress), tests API (Postman, Swagger)"
     },
     {
-        "image": "test-logiciel.webp",
-        "alt": "Logo test",
-        "title": "Test",
-        "title ": "Tests exploratoires, unitaires et d’intégration, définition d’une stratégie de test et d’un rédaction d’un cahier de recette, automatisation de tests E2E et d’API"
+        "image": "seo.webp",
+        "alt": "Icône SEO",
+        "title": "Accessibilité & SEO",
+        "text": "Audit d’accessibilité (Wave, Lighthouse) et optimisation SEO (balises meta, structure sémantique) pour améliorer la performance, l’accessibilité et le référencement."
+    },
+    {
+        "image": "git.webp",
+        "alt": "Logo git",
+        "title": "Gestion du code & Conteneurisation",
+        "text": "Gestion du code avec Git/GitHub, conteneurisation d’applications avec Docker."
+    },
+    {
+        "image": "gestion-projets.webp",
+        "alt": "Icône kanban",
+        "title": "Gestion de projet & Outils de Suivi",
+        "text": "Gestion de projets agiles avec Scrum, Kanban, et outils de suivi comme Jira et Notion pour l’organisation des tâches, documentation et collaboration."
     }
+
 ]
