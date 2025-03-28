@@ -23,8 +23,8 @@
  }
  
  /* NAVBAR (Bootstrap classes) */
- .navbar {
-     background-color: #343a40;
+ .navbar, .navbar-dark {
+    background-color: #343a40;
  }
  
  .navbarName {
@@ -35,10 +35,6 @@
  .navbar-expand-lg {
      display: flex;
      flex-wrap: wrap;
- }
- 
- .navbar-dark {
-     background-color: #343a40;
  }
  
  .navbar-collapse {
@@ -176,79 +172,45 @@
  }
  
  /* RESPONSIVE DESIGN */
- @media (max-width: 1024px) { 
-     .hero_title {
-         font-size: 3.5rem;
-     }
-     .hero_desc {
-         font-size: 1.5rem;
-     }
-     .imageAboutPage {
-         width: 80%;
-     }
-     .skillsText.card {
-         height: 100%;
-         padding: 1rem;
-     }
-     .skillsText img {
-         height: 120px;
-     }
- }
- 
- @media (max-width: 768px) { 
-     .hero_title {
-         font-size: 2.5rem;
-     }
-     .hero_desc {
-         font-size: 1.2rem;
-     }
-     .hero-text {
-         width: 90%;
-     }
-     .navbar .navLinks {
-         padding: 4px;
-     }
-     .imageAboutPage {
-         width: 70%; 
-     }
-     .skillsText.card {
-         height: auto;
-         padding: 0.5rem;
-     }
-     .skillsText img {
-         height: 100px;
-     }
-     .skillsIcon {
-         font-size: 28px;
-     }
- }
- 
- @media (max-width: 480px) { 
-     .hero_title {
-         font-size: 2rem;
-     }
-     .hero_desc {
-         font-size: 1rem;
-     }
-     .hero-text {
-         width: 100%;
-     }
-     .navbarName {
-         font-size: 1.2rem;
-     }
-     .imageAboutPage {
-         width: 60%;
-     }
-     .skillsText.card {
-         height: auto;
-         padding: 0.5rem;
-     }
-     .skillsText img {
-         height: 80px;
-     }
-     .skillsIcon {
-         font-size: 24px;
-     }
- }
+@media (max-width: 1024px), 
+       (max-width: 768px), 
+       (max-width: 480px) { 
+    .hero_title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+    .hero_desc {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    }
+    .imageAboutPage {
+    width: clamp(60%, 80vw, 80%);
+    }
+    .skillsText.card {
+    height: auto;
+    padding: 0.5rem;
+    }
+    .skillsText img {
+    height: clamp(80px, 120px, 150px);
+    }
+    .skillsIcon {
+    font-size: clamp(24px, 36px, 28px);
+    }
+}
 
+@media (max-width: 768px) { 
+    .hero-text {
+        width: 90%;
+    }
+    .navbar .navLinks {
+        padding: 4px;
+    }
+}
+
+@media (max-width: 480px) { 
+    .hero-text {
+        width: 100%;
+    }
+    .navbarName {
+        font-size: 1.2rem;
+    }
+}
 
